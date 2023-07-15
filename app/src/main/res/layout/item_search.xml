@@ -7,28 +7,18 @@
     android:layout_marginTop="4dp"
     android:background="#BE2E2D2D">
 
-    <ImageView
-        android:id="@+id/imgLogoItem"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginBottom="4dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo_people" />
-
     <TextView
         android:id="@+id/tvNameItem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:fontFamily="@font/starwars"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="4dp"
+        android:fontFamily="@font/orbitron_reg"
         android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="@+id/imgLogoItem"
-        app:layout_constraintStart_toEndOf="@+id/imgLogoItem"
-        app:layout_constraintTop_toTopOf="@+id/imgLogoItem"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:text="Luke Skywalker" />
 
     <TextView
@@ -36,7 +26,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:fontFamily="@font/starwars"
+        android:fontFamily="@font/orbitron_reg"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="@+id/tvNameItem"
         app:layout_constraintStart_toEndOf="@+id/tvNameItem"
@@ -45,11 +35,13 @@
 
     <ImageView
         android:id="@+id/imgFavoriteItem"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
         android:layout_marginEnd="16dp"
         app:layout_constraintBottom_toBottomOf="@+id/tvGenderItem"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/tvGenderItem"
         app:srcCompat="@drawable/ic_star_border" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,4 +6,6 @@
     <string name="home">Home</string>
     <string name="favorite">Favorite</string>
     <string name="wanted_name">wanted name</string>
+
+    <string name="gender_robot">robot</string>
 </resources>
