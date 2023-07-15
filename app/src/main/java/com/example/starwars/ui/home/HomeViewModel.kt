@@ -11,7 +11,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(private val repo: Repository) : ViewModel() {
-    val searchPeopleData: MutableLiveData<SearchPeople> = MutableLiveData()
+    val searchPeopleData: MutableLiveData<SearchPeople?> = MutableLiveData()
 
     fun searchPeople(name: String) {
         viewModelScope.launch {

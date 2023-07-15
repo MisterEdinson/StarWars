@@ -7,6 +7,6 @@ import retrofit2.http.Query
 interface SimpleRetro {
     @GET("people/")
     suspend fun searchPeople(
-        @Query("search") name:String
-    ): SearchPeople
+        @Query("search") name: String
+    ): SearchPeople?
 }
