@@ -13,9 +13,9 @@ import javax.inject.Inject
 class HomeViewModel @Inject constructor(private val repo: Repository) : ViewModel() {
     val searchPeopleData: MutableLiveData<List<PersonFavoriteEntity?>> = MutableLiveData()
 
-    fun searchPeople(name: String) {
+    fun searchInfo(name: String) {
         viewModelScope.launch {
-            val response = repo.searchPeople(name)
+            val response = repo.search(name)
             searchPeopleData.value = response
         }
     }

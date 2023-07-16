@@ -1,13 +1,13 @@
 package com.example.starwars.data.network.usecase
 
 import com.example.starwars.data.local.models.PersonFavoriteEntity
-import com.example.starwars.data.network.models.searchPeople.ResultsItem
-import com.example.starwars.data.network.models.searchPeople.SearchPeople
+import com.example.starwars.data.network.models.searchPlanets.ResultsItem
+import com.example.starwars.data.network.models.searchPlanets.SearchPlanets
 
-class MappingPeopleToFavoriteUseCase {
-    fun mappingPeopleToFavorite(response: SearchPeople?): List<PersonFavoriteEntity> {
+class MappingPlanetsToFavorite {
+    fun mappingPlanetToFavorite(response: SearchPlanets?): List<PersonFavoriteEntity> {
         val model: List<ResultsItem?>? = response?.results
-        val mapper = ModelPeopleToFavorite()
+        val mapper = ModelPlanetToFavorite()
         val mapping: List<PersonFavoriteEntity> =
             model?.mapNotNull { item ->
                 item.let {

@@ -30,6 +30,7 @@ data class PersonFavoriteEntity(
     val consumables: String? = null,
     val mGLT: String? = null,
     val starshipClass: String? = null,
+    val pilots: String? = null,
     val url: String? = null,
 
     val climate: String? = null,

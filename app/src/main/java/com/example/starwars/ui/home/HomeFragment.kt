@@ -51,7 +51,7 @@ class HomeFragment : Fragment() {
         job = MainScope().launch {
             edit.let {
                 if(it.toString().isNotEmpty() && it.toString().length > 1){
-                    viewModel.searchPeople(it.toString())
+                    viewModel.searchInfo(it.toString())
                 }
             }
         }
