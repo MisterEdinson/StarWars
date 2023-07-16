@@ -5,7 +5,7 @@ import androidx.room.Index
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "starwars_favorite_person", indices = [Index(value = ["name"], unique = true)])
-data class PersonFavoriteEntity(
+data class FavoriteEntity(
     @PrimaryKey(autoGenerate = true)
     val id: Int = 0,
     val name: String? = null,

@@ -8,24 +8,26 @@ import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.starwars.R
-import com.example.starwars.data.local.models.PersonFavoriteEntity
+import com.example.starwars.data.local.models.FavoriteEntity
 import kotlinx.android.synthetic.main.item_search.view.*
 
-class HomeSearchAdapter : RecyclerView.Adapter<HomeSearchAdapter.HolderSearch>() {
+class HomeSearchAdapter(
+    val clickFavorite: (FavoriteEntity) -> Unit
+) : RecyclerView.Adapter<HomeSearchAdapter.HolderSearch>() {
 
     class HolderSearch(view: View) : RecyclerView.ViewHolder(view)
 
-    val callback = object : DiffUtil.ItemCallback<PersonFavoriteEntity>() {
+    val callback = object : DiffUtil.ItemCallback<FavoriteEntity>() {
         override fun areItemsTheSame(
-            oldItem: PersonFavoriteEntity,
-            newItem: PersonFavoriteEntity
+            oldItem: FavoriteEntity,
+            newItem: FavoriteEntity
         ): Boolean {
             return oldItem.name == newItem.name
         }
 
         override fun areContentsTheSame(
-            oldItem: PersonFavoriteEntity,
-            newItem: PersonFavoriteEntity
+            oldItem: FavoriteEntity,
+            newItem: FavoriteEntity
         ): Boolean {
             return oldItem.name == newItem.name
         }
@@ -45,6 +47,7 @@ class HomeSearchAdapter : RecyclerView.Adapter<HomeSearchAdapter.HolderSearch>()
             tvGenderItem.text = item.gender
 
             imgFavoriteItem.setOnClickListener {
+                clickFavorite(item)
                 Toast.makeText(context, item.name, Toast.LENGTH_SHORT).show()
             }
         }

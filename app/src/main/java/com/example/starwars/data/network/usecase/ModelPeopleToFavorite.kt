@@ -1,13 +1,13 @@
 package com.example.starwars.data.network.usecase
 
-import com.example.starwars.data.local.models.PersonFavoriteEntity
+import com.example.starwars.data.local.models.FavoriteEntity
 import com.example.starwars.data.network.models.searchPeople.ResultsItem
 import com.google.gson.Gson
 
 class ModelPeopleToFavorite {
-    fun mapping(model: ResultsItem?): PersonFavoriteEntity {
+    fun mapping(model: ResultsItem?): FavoriteEntity {
         val gson = Gson()
-        return PersonFavoriteEntity(
+        return FavoriteEntity(
             id = 0,
             name = model?.name,
             height = model?.height,

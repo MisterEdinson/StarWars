@@ -9,6 +9,7 @@ import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.example.starwars.R
+import com.example.starwars.data.local.models.FavoriteEntity
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.coroutines.Job
@@ -49,7 +50,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun initAdapter() {
-        adapter = HomeSearchAdapter()
+        adapter = HomeSearchAdapter { favorite -> addFavorite(favorite) }
         rvSearchHome.adapter = adapter
     }
 
@@ -65,5 +66,9 @@ class HomeFragment : Fragment() {
                 }
             }
         }
+    }
+
+    private fun addFavorite(favorite: FavoriteEntity){
+        viewModel.addFavorite(favorite)
     }
 }

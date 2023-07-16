@@ -45,7 +45,11 @@ object ApplicationModule {
     @Provides
     @Singleton
     fun provideRoom(@ApplicationContext context: Context) =
-        Room.databaseBuilder(context, StarWarsLocalDB::class.java, "starwars_room").build()
+        Room.databaseBuilder(
+            context,
+            StarWarsLocalDB::class.java,
+            "starwars_room"
+        ).build()
 
     @Provides
     fun provideStarWarsDao(appDataBaseNews: StarWarsLocalDB): FavoriteDao {
