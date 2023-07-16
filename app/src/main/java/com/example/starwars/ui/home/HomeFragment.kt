@@ -34,7 +34,7 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         initAdapter()
         viewModel.searchPeopleData.observe(viewLifecycleOwner, Observer {
-            adapter?.list?.submitList(it?.results)
+            adapter?.list?.submitList(it)
         })
         etSearchName.addTextChangedListener{
             search(it)

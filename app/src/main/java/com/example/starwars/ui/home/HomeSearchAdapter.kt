@@ -3,23 +3,30 @@ package com.example.starwars.ui.home
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.starwars.R
-import com.example.starwars.data.network.models.searchPeople.ResultsItem
+import com.example.starwars.data.local.models.PersonFavoriteEntity
 import kotlinx.android.synthetic.main.item_search.view.*
 
 class HomeSearchAdapter : RecyclerView.Adapter<HomeSearchAdapter.HolderSearch>() {
 
     class HolderSearch(view: View) : RecyclerView.ViewHolder(view)
 
-    val callback = object : DiffUtil.ItemCallback<ResultsItem>() {
-        override fun areItemsTheSame(oldItem: ResultsItem, newItem: ResultsItem): Boolean {
+    val callback = object : DiffUtil.ItemCallback<PersonFavoriteEntity>() {
+        override fun areItemsTheSame(
+            oldItem: PersonFavoriteEntity,
+            newItem: PersonFavoriteEntity
+        ): Boolean {
             return oldItem.name == newItem.name
         }
 
-        override fun areContentsTheSame(oldItem: ResultsItem, newItem: ResultsItem): Boolean {
+        override fun areContentsTheSame(
+            oldItem: PersonFavoriteEntity,
+            newItem: PersonFavoriteEntity
+        ): Boolean {
             return oldItem.name == newItem.name
         }
     }
@@ -36,6 +43,10 @@ class HomeSearchAdapter : RecyclerView.Adapter<HomeSearchAdapter.HolderSearch>()
         holder.itemView.apply {
             tvNameItem.text = item.name
             tvGenderItem.text = item.gender
+
+            imgFavoriteItem.setOnClickListener {
+                Toast.makeText(context, item.name, Toast.LENGTH_SHORT).show()
+            }
         }
     }
 
