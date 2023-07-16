@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
 import com.example.starwars.R
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_home.*
@@ -33,10 +32,18 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initAdapter()
-        viewModel.searchPeopleData.observe(viewLifecycleOwner, Observer {
+        viewModel.searchPeopleData.observe(viewLifecycleOwner) {
             adapter?.list?.submitList(it)
-        })
-        etSearchName.addTextChangedListener{
+            if (it.isEmpty()) {
+                pbSearch.visibility = View.INVISIBLE
+                tvResultNull.visibility = View.VISIBLE
+            } else {
+                rvSearchHome.visibility = View.VISIBLE
+                pbSearch.visibility = View.INVISIBLE
+                tvResultNull.visibility = View.INVISIBLE
+            }
+        }
+        etSearchName.addTextChangedListener {
             search(it)
         }
     }
@@ -46,11 +53,14 @@ class HomeFragment : Fragment() {
         rvSearchHome.adapter = adapter
     }
 
-    private fun search(edit:Editable?){
+    private fun search(edit: Editable?) {
         job?.cancel()
         job = MainScope().launch {
             edit.let {
-                if(it.toString().isNotEmpty() && it.toString().length > 1){
+                if (it.toString().isNotEmpty() && it.toString().length > 1) {
+                    rvSearchHome.visibility = View.INVISIBLE
+                    tvResultNull.visibility = View.INVISIBLE
+                    pbSearch.visibility = View.VISIBLE
                     viewModel.searchInfo(it.toString())
                 }
             }
