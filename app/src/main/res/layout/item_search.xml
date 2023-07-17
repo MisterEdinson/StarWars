@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="4dp"
+    android:background="#BE2E2D2D">
+
+    <TextView
+        android:id="@+id/tvNameItem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/orbitron_reg"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Luke Skywalker" />
+
+    <TextView
+        android:id="@+id/tvGenderItem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:fontFamily="@font/orbitron_reg"
+        android:textColor="@color/white"
+
+        app:layout_constraintBottom_toBottomOf="@+id/tvNameItem"
+        app:layout_constraintStart_toEndOf="@+id/tvNameItem"
+        app:layout_constraintTop_toTopOf="@+id/tvNameItem"
+        tools:text="male" />
+
+    <ImageView
+        android:id="@+id/imgFavoriteItem"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvGenderItem"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvGenderItem"
+        app:srcCompat="@drawable/ic_star_border"
+        android:contentDescription="@string/todo" />
+
+    <TextView
+        android:id="@+id/tvStarships"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:fontFamily="@font/orbitron_reg"
+        tools:text="3 starships"
+
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/tvGenderItem"
+        app:layout_constraintStart_toEndOf="@+id/tvGenderItem"
+        app:layout_constraintTop_toTopOf="@+id/tvGenderItem" />
+
+    <TextView
+        android:id="@+id/tvModel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:fontFamily="@font/orbitron_reg"
+        tools:text="@string/model"
+        android:textColor="@color/white"
+
+        app:layout_constraintBottom_toBottomOf="@+id/tvNameItem"
+        app:layout_constraintStart_toEndOf="@+id/tvNameItem"
+        app:layout_constraintTop_toTopOf="@+id/tvNameItem" />
+
+    <TextView
+        android:id="@+id/tvManufacture"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:fontFamily="@font/orbitron_reg"
+        tools:text="@string/manufacture"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/tvModel"
+        app:layout_constraintStart_toEndOf="@+id/tvModel"
+        app:layout_constraintTop_toTopOf="@+id/tvModel" />
+
+    <TextView
+        android:id="@+id/tvPassengers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:fontFamily="@font/orbitron_reg"
+        tools:text="@string/_3"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/tvManufacture"
+        app:layout_constraintEnd_toStartOf="@+id/imgFavoriteItem"
+        app:layout_constraintStart_toEndOf="@+id/tvManufacture"
+        app:layout_constraintTop_toTopOf="@+id/tvManufacture"
+ />
+
+    <TextView
+        android:id="@+id/tvDiameter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        tools:text="@string/diameter"
+        android:textColor="@color/white"
+
+        android:fontFamily="@font/orbitron_reg"
+        app:layout_constraintBottom_toBottomOf="@+id/tvNameItem"
+        app:layout_constraintStart_toStartOf="@+id/tvGenderItem"
+        app:layout_constraintTop_toTopOf="@+id/tvNameItem" />
+
+    <TextView
+        android:id="@+id/tvPopulation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:fontFamily="@font/orbitron_reg"
+        tools:text="@string/population"
+
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/tvDiameter"
+        app:layout_constraintStart_toEndOf="@+id/tvDiameter"
+        app:layout_constraintTop_toTopOf="@+id/tvDiameter" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
