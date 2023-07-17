@@ -28,6 +28,7 @@
         android:layout_marginStart="16dp"
         android:fontFamily="@font/orbitron_reg"
         android:textColor="@color/white"
+
         app:layout_constraintBottom_toBottomOf="@+id/tvNameItem"
         app:layout_constraintStart_toEndOf="@+id/tvNameItem"
         app:layout_constraintTop_toTopOf="@+id/tvNameItem"
@@ -41,7 +42,86 @@
         app:layout_constraintBottom_toBottomOf="@+id/tvGenderItem"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/tvGenderItem"
-        app:srcCompat="@drawable/ic_star_border" />
+        app:srcCompat="@drawable/ic_star_border"
+        android:contentDescription="@string/todo" />
+
+    <TextView
+        android:id="@+id/tvStarships"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:fontFamily="@font/orbitron_reg"
+        tools:text="3 starships"
+
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/tvGenderItem"
+        app:layout_constraintStart_toEndOf="@+id/tvGenderItem"
+        app:layout_constraintTop_toTopOf="@+id/tvGenderItem" />
+
+    <TextView
+        android:id="@+id/tvModel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:fontFamily="@font/orbitron_reg"
+        tools:text="@string/model"
+        android:textColor="@color/white"
+
+        app:layout_constraintBottom_toBottomOf="@+id/tvNameItem"
+        app:layout_constraintStart_toEndOf="@+id/tvNameItem"
+        app:layout_constraintTop_toTopOf="@+id/tvNameItem" />
+
+    <TextView
+        android:id="@+id/tvManufacture"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:fontFamily="@font/orbitron_reg"
+        tools:text="@string/manufacture"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/tvModel"
+        app:layout_constraintStart_toEndOf="@+id/tvModel"
+        app:layout_constraintTop_toTopOf="@+id/tvModel" />
+
+    <TextView
+        android:id="@+id/tvPassengers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:fontFamily="@font/orbitron_reg"
+        tools:text="@string/_3"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/tvManufacture"
+        app:layout_constraintEnd_toStartOf="@+id/imgFavoriteItem"
+        app:layout_constraintStart_toEndOf="@+id/tvManufacture"
+        app:layout_constraintTop_toTopOf="@+id/tvManufacture"
+ />
+
+    <TextView
+        android:id="@+id/tvDiameter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        tools:text="@string/diameter"
+        android:textColor="@color/white"
+
+        android:fontFamily="@font/orbitron_reg"
+        app:layout_constraintBottom_toBottomOf="@+id/tvNameItem"
+        app:layout_constraintStart_toStartOf="@+id/tvGenderItem"
+        app:layout_constraintTop_toTopOf="@+id/tvNameItem" />
+
+    <TextView
+        android:id="@+id/tvPopulation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:fontFamily="@font/orbitron_reg"
+        tools:text="@string/population"
+
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/tvDiameter"
+        app:layout_constraintStart_toEndOf="@+id/tvDiameter"
+        app:layout_constraintTop_toTopOf="@+id/tvDiameter" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

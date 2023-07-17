@@ -18,7 +18,7 @@ class ModelPeopleToFavorite {
             films = gson.toJson(model?.films),
             species = gson.toJson(model?.species),
             vehicles = gson.toJson(model?.vehicles),
-            starships = gson.toJson(model?.starships),
+            starships = model?.starships?.size.toString(),
             url = model?.url,
         )
     }

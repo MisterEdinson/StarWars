@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.starwars.R
 import com.example.starwars.data.local.models.FavoriteEntity
+import com.google.gson.Gson
 import kotlinx.android.synthetic.main.item_search.view.*
 
 class HomeSearchAdapter(
@@ -22,14 +23,14 @@ class HomeSearchAdapter(
             oldItem: FavoriteEntity,
             newItem: FavoriteEntity
         ): Boolean {
-            return oldItem.name == newItem.name
+            return oldItem.url == newItem.url
         }
 
         override fun areContentsTheSame(
             oldItem: FavoriteEntity,
             newItem: FavoriteEntity
         ): Boolean {
-            return oldItem.name == newItem.name
+            return oldItem.url == newItem.url
         }
     }
 
@@ -42,9 +43,22 @@ class HomeSearchAdapter(
 
     override fun onBindViewHolder(holder: HolderSearch, position: Int) {
         val item = list.currentList[position]
+        val gson = Gson()
         holder.itemView.apply {
             tvNameItem.text = item.name
-            tvGenderItem.text = item.gender
+            if(item.gender != null){
+                tvGenderItem.text = item.gender
+                tvStarships.text = item.starships
+            }
+            if(item.model != null){
+                tvModel.text = item.model
+//                tvManufacture.text = item.manufacturer?.take(7)
+                tvPassengers.text = item.passengers
+            }
+            if(item.diameter != null){
+                tvDiameter.text = item.diameter
+                tvPopulation.text = item.population
+            }
 
             imgFavoriteItem.setOnClickListener {
                 clickFavorite(item)

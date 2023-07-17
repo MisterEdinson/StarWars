@@ -9,4 +9,10 @@
 
     <string name="gender_robot">robot</string>
     <string name="nothing_result">The galaxy does not know this name…</string>
+    <string name="manufacture">manufacture</string>
+    <string name="model">model</string>
+    <string name="_3">3</string>
+    <string name="todo">TODO</string>
+    <string name="diameter">diameter</string>
+    <string name="population">population</string>
 </resources>
