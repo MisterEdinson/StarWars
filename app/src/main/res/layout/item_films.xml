@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/black"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/imgDetailsFilmLogo"
+        android:layout_width="130dp"
+        android:layout_height="195dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/episode_1" />
+
+    <TextView
+        android:id="@+id/tvDetailsFilmTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="@font/orbitron_reg"
+        android:text="Attack of the Clones"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/imgDetailsFilmLogo"
+        app:layout_constraintTop_toTopOf="@+id/imgDetailsFilmLogo" />
+
+    <TextView
+        android:id="@+id/tvDetailsFilmDirectorText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/orbitron_reg"
+        android:text="Director :"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toEndOf="@+id/imgDetailsFilmLogo"
+        app:layout_constraintTop_toBottomOf="@+id/tvDetailsFilmTitle" />
+
+    <TextView
+        android:id="@+id/tvDetailsFilmDirector"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="@font/orbitron_reg"
+        android:text="Richard Marquand"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/tvDetailsFilmDirectorText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/tvDetailsFilmDirectorText"
+        app:layout_constraintTop_toTopOf="@+id/tvDetailsFilmDirectorText"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/tvDetailsFilmProducerText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/orbitron_reg"
+        android:text="Producer :"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toEndOf="@+id/imgDetailsFilmLogo"
+        app:layout_constraintTop_toBottomOf="@+id/tvDetailsFilmDirectorText" />
+
+    <TextView
+        android:id="@+id/tvDetailsFilmProducer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="@font/orbitron_reg"
+        android:text="Gary Kurtz, Rick McCallum"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/tvDetailsFilmProducerText"
+        app:layout_constraintTop_toTopOf="@+id/tvDetailsFilmProducerText" />
+
+    <TextView
+        android:id="@+id/tvDetailsFilmReleaseText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="Release :"
+        android:textColor="@color/white"
+        android:fontFamily="@font/orbitron_reg"
+        app:layout_constraintStart_toEndOf="@+id/imgDetailsFilmLogo"
+        app:layout_constraintTop_toBottomOf="@+id/tvDetailsFilmProducer" />
+
+    <TextView
+        android:id="@+id/tvDetailsFilmRelease"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="1977-05-25"
+        android:textColor="@color/white"
+        android:fontFamily="@font/orbitron_reg"
+        app:layout_constraintBottom_toBottomOf="@+id/tvDetailsFilmReleaseText"
+        app:layout_constraintStart_toEndOf="@+id/tvDetailsFilmReleaseText"
+        app:layout_constraintTop_toTopOf="@+id/tvDetailsFilmReleaseText" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
