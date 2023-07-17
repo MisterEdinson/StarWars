@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.AsyncListUtil
 import androidx.recyclerview.widget.DiffUtil
@@ -37,6 +38,7 @@ class FavoriteAdapter: RecyclerView.Adapter<FavoriteAdapter.FavoriteHolder>(){
         holder.itemView.apply {
             holder.itemView.apply {
                 tvNameItem.text = item.name
+                imgFavoriteItem.setImageResource(R.drawable.ic_star)
                 if(item.gender != null){
                     tvGenderItem.text = item.gender
                     tvStarships.text = item.starships
@@ -51,10 +53,13 @@ class FavoriteAdapter: RecyclerView.Adapter<FavoriteAdapter.FavoriteHolder>(){
                     tvPopulation.text = item.population
                 }
 
-//                imgFavoriteItem.setOnClickListener {
-//                    clickFavorite(item)
-//                    Toast.makeText(context, item.name, Toast.LENGTH_SHORT).show()
-//                }
+                itemList.setOnClickListener {
+                    findNavController().navigate(R.id.action_favoriteFragment_to_detailsFragment)
+                }
+
+                imgFavoriteItem.setOnClickListener {
+                    Toast.makeText(context, "delete", Toast.LENGTH_SHORT).show()
+                }
             }
         }
     }
