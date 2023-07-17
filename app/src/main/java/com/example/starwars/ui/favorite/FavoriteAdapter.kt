@@ -1,9 +1,11 @@
 package com.example.starwars.ui.favorite
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.os.bundleOf
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.AsyncListUtil
@@ -54,7 +56,9 @@ class FavoriteAdapter: RecyclerView.Adapter<FavoriteAdapter.FavoriteHolder>(){
                 }
 
                 itemList.setOnClickListener {
-                    findNavController().navigate(R.id.action_favoriteFragment_to_detailsFragment)
+                    val bundle = bundleOf("url" to item.url)
+                    Log.e("favorite fragment", bundle.toString())
+                    findNavController().navigate(R.id.action_favoriteFragment_to_detailsFragment, bundle)
                 }
 
                 imgFavoriteItem.setOnClickListener {

@@ -35,5 +35,8 @@
         <action
             android:id="@+id/action_detailsFragment_to_favoriteFragment"
             app:destination="@id/favoriteFragment" />
+        <argument
+            android:name="url"
+            app:argType="string" />
     </fragment>
 </navigation>

@@ -36,4 +36,8 @@ class Repository @Inject constructor(
     suspend fun getFavorite(): List<FavoriteEntity> {
         return daoFavorite.getAllFavorite()
     }
+
+    suspend fun getDetails(url: String) : FavoriteEntity{
+        return daoFavorite.getItemFavorite(url)
+    }
 }
