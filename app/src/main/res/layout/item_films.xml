@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/black"
+    android:background="@drawable/bg_main_sarch"
+    android:layout_marginBottom="8dp"
+    android:padding="10dp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -10,8 +12,7 @@
         android:id="@+id/imgDetailsFilmLogo"
         android:layout_width="130dp"
         android:layout_height="195dp"
-        android:layout_marginBottom="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:contentDescription="@string/todo"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/episode_1" />
@@ -24,7 +25,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:fontFamily="@font/orbitron_reg"
-        android:text="Attack of the Clones"
+        android:text="@string/attack_of_the_clones"
         android:textColor="@color/white"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -40,7 +41,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
         android:fontFamily="@font/orbitron_reg"
-        android:text="Director :"
+        android:text="@string/director"
         android:textColor="@color/white"
         app:layout_constraintStart_toEndOf="@+id/imgDetailsFilmLogo"
         app:layout_constraintTop_toBottomOf="@+id/tvDetailsFilmTitle" />
@@ -52,7 +53,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginEnd="16dp"
         android:fontFamily="@font/orbitron_reg"
-        android:text="Richard Marquand"
+        android:text="@string/richard_marquand"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="@+id/tvDetailsFilmDirectorText"
         app:layout_constraintEnd_toEndOf="parent"
@@ -68,7 +69,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/orbitron_reg"
-        android:text="Producer :"
+        android:text="@string/producer"
         android:textColor="@color/white"
         app:layout_constraintStart_toEndOf="@+id/imgDetailsFilmLogo"
         app:layout_constraintTop_toBottomOf="@+id/tvDetailsFilmDirectorText" />
@@ -80,7 +81,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginEnd="16dp"
         android:fontFamily="@font/orbitron_reg"
-        android:text="Gary Kurtz, Rick McCallum"
+        android:text="@string/gary_kurtz_rick_mccallum"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

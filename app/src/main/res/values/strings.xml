@@ -31,4 +31,9 @@
     <string name="starships_label">Summ starships: %1$s</string>
     <string name="model_label">Model: %1$s</string>
     <string name="passengers_label">Passengers: %1$s</string>
+    <string name="attack_of_the_clones">Attack of the Clones</string>
+    <string name="director">Director :</string>
+    <string name="richard_marquand">Richard Marquand</string>
+    <string name="producer">Producer :</string>
+    <string name="gary_kurtz_rick_mccallum">Gary Kurtz, Rick McCallum</string>
 </resources>

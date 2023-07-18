@@ -1,5 +1,6 @@
 package com.example.starwars.domain
 
+import android.util.Log
 import com.example.starwars.data.local.dao.FavoriteDao
 import com.example.starwars.data.local.dao.FilmsDao
 import com.example.starwars.data.local.models.FavoriteEntity
@@ -9,6 +10,7 @@ import com.example.starwars.data.network.usecase.MappingPeopleToFavorite
 import com.example.starwars.data.network.usecase.MappingPlanetsToFavorite
 import com.example.starwars.data.network.usecase.MappingStarshipsToFavorite
 import com.google.gson.Gson
+import java.net.SocketTimeoutException
 import javax.inject.Inject
 
 class Repository @Inject constructor(
@@ -17,20 +19,26 @@ class Repository @Inject constructor(
     private val daoFilms: FilmsDao
 ) {
     suspend fun search(name: String): List<FavoriteEntity?> {
-        val responsePeople = retrofit.searchPeople(name)
-        val responsePlanet = retrofit.searchPlanet(name)
-        val responseStarships = retrofit.searchStarships(name)
+        try {
+            val responsePeople = retrofit.searchPeople(name)
+            val responsePlanet = retrofit.searchPlanet(name)
+            val responseStarships = retrofit.searchStarships(name)
 
-        val resultPeople = MappingPeopleToFavorite().mappingPeopleToFavorite(responsePeople)
-        val resultPlanet = MappingPlanetsToFavorite().mappingPlanetToFavorite(responsePlanet)
-        val resultStarship =
-            MappingStarshipsToFavorite().mappingStarshipsToFavorite(responseStarships)
+            val resultPeople = MappingPeopleToFavorite().mappingPeopleToFavorite(responsePeople)
+            val resultPlanet = MappingPlanetsToFavorite().mappingPlanetToFavorite(responsePlanet)
+            val resultStarship =
+                MappingStarshipsToFavorite().mappingStarshipsToFavorite(responseStarships)
 
-        return resultPeople.flatMap {
-            listOf(it)
-        } + resultPlanet.flatMap {
-            listOf(it)
-        } + resultStarship.flatMap { listOf(it) }
+            return resultPeople.flatMap {
+                listOf(it)
+            } + resultPlanet.flatMap {
+                listOf(it)
+            } + resultStarship.flatMap { listOf(it) }
+
+        } catch (e: SocketTimeoutException) {
+            Log.d("SocketTimeoutException:", "timeout")
+            return emptyList()
+        }
     }
 
     suspend fun addFavorite(add: FavoriteEntity) {
