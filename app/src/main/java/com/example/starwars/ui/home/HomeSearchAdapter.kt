@@ -4,20 +4,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.core.os.bundleOf
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.starwars.R
 import com.example.starwars.data.local.models.FavoriteEntity
-import com.google.gson.Gson
 import kotlinx.android.synthetic.main.item_people.view.*
 import kotlinx.android.synthetic.main.item_planet.view.*
-import kotlinx.android.synthetic.main.item_search.view.*
 import kotlinx.android.synthetic.main.item_starships.view.*
 
 class HomeSearchAdapter(
-    val clickFavorite: (FavoriteEntity) -> Unit
+    val clickFavorite: (FavoriteEntity) -> Unit,
+    val downloadFilms: (String?) -> Unit
 ) : RecyclerView.Adapter<HomeSearchAdapter.HolderSearch>() {
 
     class HolderSearch(view: View) : RecyclerView.ViewHolder(view)
@@ -70,8 +68,7 @@ class HomeSearchAdapter(
         if (list.currentList[position].diameter != null) {
             //planets
             return 1
-        }
-        else{
+        } else {
             //starships
             return 2
         }
@@ -83,32 +80,39 @@ class HomeSearchAdapter(
         holder.itemView.apply {
             if (item.gender != null) {
                 tvNamePeopleItem.text = item.name
-                tvGenderPeopleItem.text = "Gender : ${item.gender}"
-                tvStarshipsPeopleItem.text = "Starships : ${item.starships}"
+                tvGenderPeopleItem.text = resources.getString(R.string.gender_label, item.gender)
+                tvStarshipsPeopleItem.text =
+                    resources.getString(R.string.starships_label, item.starships)
 
-                imgFavoriteAddPeopleItem.setOnClickListener{
+                imgFavoriteAddPeopleItem.setOnClickListener {
                     clickFavorite(item)
+                    downloadFilms(item.films)
                     Toast.makeText(context, "add ${item.name}", Toast.LENGTH_SHORT).show()
                 }
             }
             if (item.diameter != null) {
                 tvNamePlanetItem.text = item.name
-                tvDiameterPlanetItem.text = "Diameter : ${item.diameter}"
-                tvPopulationPlanetItem.text = "Population : ${item.population}"
+                tvDiameterPlanetItem.text =
+                    resources.getString(R.string.diameter_label, item.diameter)
+                tvPopulationPlanetItem.text =
+                    resources.getString(R.string.population_label, item.population)
 
-                imgFavoriteAddPlanetItem.setOnClickListener{
+                imgFavoriteAddPlanetItem.setOnClickListener {
                     clickFavorite(item)
+                    downloadFilms(item.films)
                     Toast.makeText(context, "add ${item.name}", Toast.LENGTH_SHORT).show()
                 }
             }
             if (item.model != null) {
                 tvNameStarshipsItem.text = item.name
-                tvModelStarshipsItem.text = "Model : ${item.model}"
+                tvModelStarshipsItem.text = resources.getString(R.string.model_label, item.model)
                 tvManufactureStarshipsItem.text = item.manufacturer
-                tvPassengersStarshipsItem.text = "Passengers : ${item.passengers}"
+                tvPassengersStarshipsItem.text =
+                    resources.getString(R.string.passengers_label, item.passengers)
 
-                imgFavoriteAddStarshipsItem.setOnClickListener{
+                imgFavoriteAddStarshipsItem.setOnClickListener {
                     clickFavorite(item)
+                    downloadFilms(item.films)
                     Toast.makeText(context, "add ${item.name}", Toast.LENGTH_SHORT).show()
                 }
             }

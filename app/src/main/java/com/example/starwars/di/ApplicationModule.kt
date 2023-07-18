@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.room.Room
 import com.example.starwars.data.local.StarWarsLocalDB
 import com.example.starwars.data.local.dao.FavoriteDao
+import com.example.starwars.data.local.dao.FilmsDao
 import com.example.starwars.data.network.SimpleRetro
 import com.example.starwars.domain.utils.Constants.Companion.BASE_URL
 import dagger.Module
@@ -54,5 +55,10 @@ object ApplicationModule {
     @Provides
     fun provideStarWarsDao(appDataBaseNews: StarWarsLocalDB): FavoriteDao {
         return appDataBaseNews.favoritePerson()
+    }
+
+    @Provides
+    fun provideStarWarsFilmDao(appDataBaseNews: StarWarsLocalDB): FilmsDao {
+        return appDataBaseNews.filmsAdd()
     }
 }

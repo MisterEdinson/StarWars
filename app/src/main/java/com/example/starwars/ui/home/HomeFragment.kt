@@ -47,10 +47,16 @@ class HomeFragment : Fragment() {
         etSearchName.addTextChangedListener {
             search(it)
         }
+        imgCloseIcon?.setOnClickListener {
+            etSearchName?.setText("")
+        }
     }
 
     private fun initAdapter() {
-        adapter = HomeSearchAdapter { favorite -> addFavorite(favorite) }
+        adapter = HomeSearchAdapter (
+            { favorite -> addFavorite(favorite) },
+            { download-> downloadFilms(download) }
+        )
         rvSearchHome.adapter = adapter
     }
 
@@ -70,5 +76,9 @@ class HomeFragment : Fragment() {
 
     private fun addFavorite(favorite: FavoriteEntity){
         viewModel.addFavorite(favorite)
+    }
+
+    private fun downloadFilms(films: String?){
+        viewModel.downloadFilms(films)
     }
 }

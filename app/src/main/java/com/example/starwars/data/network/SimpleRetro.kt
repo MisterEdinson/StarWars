@@ -1,9 +1,11 @@
 package com.example.starwars.data.network
 
+import com.example.starwars.data.network.models.Films
 import com.example.starwars.data.network.models.searchPeople.SearchPeople
 import com.example.starwars.data.network.models.searchPlanets.SearchPlanets
 import com.example.starwars.data.network.models.searchStarships.SearchStarships
 import retrofit2.http.GET
+import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface SimpleRetro {
@@ -21,4 +23,7 @@ interface SimpleRetro {
     suspend fun searchStarships(
         @Query("search") name: String
     ): SearchStarships?
+
+    @GET("films/{url}")
+    suspend fun searchFilm(@Path("url") film: String): Films?
 }

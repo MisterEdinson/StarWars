@@ -25,4 +25,10 @@ class HomeViewModel @Inject constructor(private val repo: Repository) : ViewMode
             repo.addFavorite(favorite)
         }
     }
+
+    fun downloadFilms(urls: String?){
+        viewModelScope.launch {
+            repo.downloadFilms(urls)
+        }
+    }
 }
