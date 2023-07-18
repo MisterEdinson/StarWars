@@ -40,4 +40,8 @@ class Repository @Inject constructor(
     suspend fun getDetails(url: String) : FavoriteEntity{
         return daoFavorite.getItemFavorite(url)
     }
+
+    suspend fun deleteItem(delete: String){
+        daoFavorite.deleteFavorite(delete)
+    }
 }

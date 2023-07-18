@@ -1,22 +1,19 @@
 package com.example.starwars.ui.favorite
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.core.os.bundleOf
-import androidx.navigation.findNavController
 import androidx.recyclerview.widget.AsyncListDiffer
-import androidx.recyclerview.widget.AsyncListUtil
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.starwars.R
 import com.example.starwars.data.local.models.FavoriteEntity
-import kotlinx.android.synthetic.main.item_search.view.*
+import kotlinx.android.synthetic.main.item_people.view.*
+import kotlinx.android.synthetic.main.item_planet.view.*
+import kotlinx.android.synthetic.main.item_starships.view.*
 
-class FavoriteAdapter: RecyclerView.Adapter<FavoriteAdapter.FavoriteHolder>(){
-    class FavoriteHolder(view: View):RecyclerView.ViewHolder(view)
+class FavoriteAdapter(val delFavorite: (String) -> Unit) : RecyclerView.Adapter<FavoriteAdapter.FavoriteHolder>() {
+    class FavoriteHolder(view: View) : RecyclerView.ViewHolder(view)
 
     val callback = object : DiffUtil.ItemCallback<FavoriteEntity>() {
         override fun areItemsTheSame(oldItem: FavoriteEntity, newItem: FavoriteEntity): Boolean {
@@ -31,38 +28,73 @@ class FavoriteAdapter: RecyclerView.Adapter<FavoriteAdapter.FavoriteHolder>(){
     val list = AsyncListDiffer(this, callback)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FavoriteHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_search, parent, false)
-        return FavoriteHolder(view)
+        when (viewType) {
+            0 -> {
+                val view =
+                    LayoutInflater.from(parent.context).inflate(R.layout.item_people, parent, false)
+                return FavoriteHolder(view)
+            }
+            1 -> {
+                val view =
+                    LayoutInflater.from(parent.context).inflate(R.layout.item_planet, parent, false)
+                return FavoriteHolder(view)
+            }
+            else -> {
+                val view =
+                    LayoutInflater.from(parent.context)
+                        .inflate(R.layout.item_starships, parent, false)
+                return FavoriteHolder(view)
+            }
+        }
+    }
+
+    override fun getItemViewType(position: Int): Int {
+        if (list.currentList[position].gender != null) {
+            //people
+            return 0
+        }
+        if (list.currentList[position].diameter != null) {
+            //planets
+            return 1
+        } else {
+            //starships
+            return 2
+        }
     }
 
     override fun onBindViewHolder(holder: FavoriteHolder, position: Int) {
         val item = list.currentList[position]
         holder.itemView.apply {
-            holder.itemView.apply {
-                tvNameItem.text = item.name
-                imgFavoriteItem.setImageResource(R.drawable.ic_star)
-                if(item.gender != null){
-                    tvGenderItem.text = item.gender
-                    tvStarships.text = item.starships
-                }
-                if(item.model != null){
-                    tvModel.text = item.model
-//                tvManufacture.text = item.manufacturer?.take(7)
-                    tvPassengers.text = item.passengers
-                }
-                if(item.diameter != null){
-                    tvDiameter.text = item.diameter
-                    tvPopulation.text = item.population
+            if (item.gender != null) {
+                tvNamePeopleItem.text = item.name
+                tvGenderPeopleItem.text = "Gender : ${item.gender}"
+                tvStarshipsPeopleItem.text = "Starships : ${item.starships}"
+                imgFavoriteAddPeopleItem.setImageResource(R.drawable.ic_star)
+
+                imgFavoriteAddPeopleItem.setOnClickListener{
+                    delFavorite(item.url.toString())
                 }
 
-                itemList.setOnClickListener {
-                    val bundle = bundleOf("url" to item.url)
-                    Log.e("favorite fragment", bundle.toString())
-                    findNavController().navigate(R.id.action_favoriteFragment_to_detailsFragment, bundle)
-                }
+            }
+            if (item.diameter != null) {
+                tvNamePlanetItem.text = item.name
+                tvDiameterPlanetItem.text = "Diameter : ${item.diameter}"
+                tvPopulationPlanetItem.text = "Population : ${item.population}"
+                imgFavoriteAddPlanetItem.setImageResource(R.drawable.ic_star)
 
-                imgFavoriteItem.setOnClickListener {
-                    Toast.makeText(context, "delete", Toast.LENGTH_SHORT).show()
+                imgFavoriteAddPlanetItem.setOnClickListener{
+                    delFavorite(item.url.toString())
+                }
+            }
+            if (item.model != null) {
+                tvNameStarshipsItem.text = item.name
+                tvModelStarshipsItem.text = "Model : ${item.model}"
+                tvManufactureStarshipsItem.text = item.manufacturer
+                tvPassengersStarshipsItem.text = "Passengers : ${item.passengers}"
+                imgFavoriteAddStarshipsItem.setImageResource(R.drawable.ic_star)
+
+                imgFavoriteAddStarshipsItem.setOnClickListener{
+                    delFavorite(item.url.toString())
                 }
             }
         }

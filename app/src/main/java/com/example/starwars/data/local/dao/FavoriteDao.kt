@@ -14,7 +14,7 @@ interface FavoriteDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertFavorite(insert: FavoriteEntity)
 
-    @Query("DELETE FROM starwars_favorite_person WHERE name LIKE :delete")
+    @Query("DELETE FROM starwars_favorite_person WHERE url LIKE :delete")
     suspend fun deleteFavorite(delete: String)
 
     @Query("DELETE FROM starwars_favorite_person")

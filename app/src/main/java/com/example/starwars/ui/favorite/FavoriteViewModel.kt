@@ -19,4 +19,10 @@ class FavoriteViewModel @Inject constructor(private val repository: Repository):
             favoriteData.value = response
         }
     }
+
+    fun deleteFavoriteItem(delete: String){
+        viewModelScope.launch {
+            repository.deleteItem(delete)
+        }
+    }
 }
