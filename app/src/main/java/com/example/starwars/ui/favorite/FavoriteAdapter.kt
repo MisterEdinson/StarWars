@@ -3,6 +3,9 @@ package com.example.starwars.ui.favorite
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.core.os.bundleOf
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
@@ -72,7 +75,15 @@ class FavoriteAdapter(val delFavorite: (String) -> Unit) : RecyclerView.Adapter<
                 imgFavoriteAddPeopleItem.setImageResource(R.drawable.ic_star)
 
                 imgFavoriteAddPeopleItem.setOnClickListener{
+                    Toast.makeText(context, "delete ${item.name}", Toast.LENGTH_SHORT).show()
                     delFavorite(item.url.toString())
+                }
+                cardFavoritePeople.setOnClickListener {
+                    val bundle = bundleOf("url" to item.url)
+                    findNavController().navigate(
+                        R.id.action_favoriteFragment_to_detailsFragment,
+                        bundle
+                    )
                 }
 
             }
@@ -83,7 +94,16 @@ class FavoriteAdapter(val delFavorite: (String) -> Unit) : RecyclerView.Adapter<
                 imgFavoriteAddPlanetItem.setImageResource(R.drawable.ic_star)
 
                 imgFavoriteAddPlanetItem.setOnClickListener{
+                    Toast.makeText(context, "delete ${item.name}", Toast.LENGTH_SHORT).show()
                     delFavorite(item.url.toString())
+                }
+
+                cardFavoritePlanet.setOnClickListener {
+                    val bundle = bundleOf("url" to item.url)
+                    findNavController().navigate(
+                        R.id.action_favoriteFragment_to_detailsFragment,
+                        bundle
+                    )
                 }
             }
             if (item.model != null) {
@@ -94,7 +114,16 @@ class FavoriteAdapter(val delFavorite: (String) -> Unit) : RecyclerView.Adapter<
                 imgFavoriteAddStarshipsItem.setImageResource(R.drawable.ic_star)
 
                 imgFavoriteAddStarshipsItem.setOnClickListener{
+                    Toast.makeText(context, "delete ${item.name}", Toast.LENGTH_SHORT).show()
                     delFavorite(item.url.toString())
+                }
+
+                cardFavoriteStarships.setOnClickListener {
+                    val bundle = bundleOf("url" to item.url)
+                    findNavController().navigate(
+                        R.id.action_favoriteFragment_to_detailsFragment,
+                        bundle
+                    )
                 }
             }
         }
