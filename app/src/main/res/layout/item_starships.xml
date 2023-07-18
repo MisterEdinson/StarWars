@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/item_search"
+    android:layout_margin="4dp"
+    android:paddingStart="16dp"
+    android:paddingEnd="16dp"
+    android:paddingBottom="8dp"
+    android:paddingTop="8dp"
+    android:id="@+id/cardFavoriteStarships"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/tvNameStarshipsItem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/orbitron_reg"
+        android:text="CR90 corvette"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvModelStarshipsItem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/orbitron_reg"
+        android:gravity="center"
+        android:paddingTop="4dp"
+        android:text="Model: CR90 corvette"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toStartOf="@+id/imgFavoriteAddStarshipsItem"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvNameStarshipsItem" />
+
+    <TextView
+        android:id="@+id/tvManufactureStarshipsItem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/orbitron_reg"
+        android:text="Corellian Engineering Corporation"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toStartOf="@+id/imgFavoriteAddStarshipsItem"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/tvModelStarshipsItem"
+        app:layout_constraintTop_toBottomOf="@+id/tvModelStarshipsItem" />
+
+    <TextView
+        android:id="@+id/tvPassengersStarshipsItem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/orbitron_reg"
+        android:gravity="center|left"
+        android:text="Passengers: 600"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toStartOf="@+id/imgFavoriteAddStarshipsItem"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/tvManufactureStarshipsItem"
+        app:layout_constraintTop_toBottomOf="@+id/tvManufactureStarshipsItem" />
+
+    <ImageView
+        android:id="@+id/imgFavoriteAddStarshipsItem"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_star_border" />
+</androidx.constraintlayout.widget.ConstraintLayout>
